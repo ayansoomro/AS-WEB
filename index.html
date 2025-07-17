@@ -3,92 +3,131 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact | AS Web Designer</title>
+  <title>AS Web Designer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { poppins: ['Poppins', 'sans-serif'] },
+          colors: {
+            primary: '#00ffcc',
+            dark: '#0d0d0d',
+          },
+        },
+      },
+    };
+  </script>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&display=swap');
-
-    body {
-      font-family: 'Playfair Display', serif;
-      background: linear-gradient(to right, #1a1a1a, #2d2d2d);
+    html {
+      scroll-behavior: smooth;
     }
-
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(10px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .reveal {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.6s ease;
     }
-
-    .fade-in {
-      animation: fadeIn 0.6s ease-out forwards;
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   </style>
 </head>
-<body class="text-white p-6">
-  <div class="max-w-4xl mx-auto bg-gray-900 p-8 rounded-xl shadow-lg">
-    <h1 class="text-4xl text-center mb-6 font-bold text-indigo-400">Contact AS Web Designer</h1>
+<body class="bg-dark text-white font-poppins">
 
-    <form id="contact-form" class="space-y-6">
-      <div>
-        <label for="name" class="block mb-2 text-lg font-medium">Your Name</label>
-        <input type="text" id="name" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your name">
+  <!-- Navbar -->
+  <header class="flex justify-between items-center p-6 shadow-md fixed w-full top-0 bg-dark z-50">
+    <h1 class="text-2xl font-bold text-primary">AS PORTFOLIO</h1>
+    <nav class="space-x-4">
+      <a href="#home" class="hover:text-primary">Home</a>
+      <a href="#about" class="hover:text-primary">About</a>
+      <a href="#skills" class="hover:text-primary">Skills</a>
+      <a href="#projects" class="hover:text-primary">Projects</a>
+      <a href="#contact" class="hover:text-primary">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero -->
+  <section id="home" class="h-screen flex items-center justify-center text-center bg-gradient-to-b from-black to-dark pt-24">
+    <div class="reveal">
+      <h2 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-primary">AS</span></h2>
+      <p class="text-xl mb-6">A passionate <span class="text-primary">Web Designer & Developer</span></p>
+      <a href="#contact" class="bg-primary text-black font-semibold px-6 py-3 rounded-lg hover:scale-105 transition">Hire Me</a>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="py-20 px-6 md:px-20 bg-dark">
+    <div class="max-w-4xl mx-auto reveal">
+      <h2 class="text-3xl font-bold text-primary mb-6">About Me</h2>
+      <p class="text-lg leading-relaxed">
+        I'm a creative frontend developer with a strong passion for building modern, responsive websites. My expertise includes HTML, CSS, Tailwind, JavaScript, and UI design. I love making user-friendly, animated web experiences.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="py-20 px-6 md:px-20 bg-black">
+    <div class="max-w-5xl mx-auto reveal">
+      <h2 class="text-3xl font-bold text-primary mb-10">My Skills</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
+        <div class="bg-dark p-6 rounded-lg shadow-md">HTML</div>
+        <div class="bg-dark p-6 rounded-lg shadow-md">CSS / Tailwind</div>
+        <div class="bg-dark p-6 rounded-lg shadow-md">JavaScript</div>
+        <div class="bg-dark p-6 rounded-lg shadow-md">Responsive Design</div>
       </div>
+    </div>
+  </section>
 
-      <div>
-        <label for="email" class="block mb-2 text-lg font-medium">Your Email</label>
-        <input type="email" id="email" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter your email">
+  <!-- Projects -->
+  <section id="projects" class="py-20 px-6 md:px-20 bg-dark">
+    <div class="max-w-5xl mx-auto reveal">
+      <h2 class="text-3xl font-bold text-primary mb-10">Projects</h2>
+      <div class="grid md:grid-cols-2 gap-8">
+        <div class="bg-black p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-2">Gaming Zone Website</h3>
+          <p>A complete e-commerce site for gaming accessories built using HTML, Tailwind & JS.</p>
+        </div>
+        <div class="bg-black p-6 rounded-lg shadow-md">
+          <h3 class="text-xl font-bold mb-2">Perfume Store</h3>
+          <p>Luxury-themed perfume shop with product detail pages and cart functionality.</p>
+        </div>
       </div>
+    </div>
+  </section>
 
-      <div>
-        <label for="subject" class="block mb-2 text-lg font-medium">Subject</label>
-        <input type="text" id="subject" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Enter subject">
-      </div>
+  <!-- Contact -->
+  <section id="contact" class="py-20 px-6 md:px-20 bg-black">
+    <div class="max-w-xl mx-auto reveal">
+      <h2 class="text-3xl font-bold text-primary mb-6">Contact Me</h2>
+      <form class="space-y-4">
+        <input type="text" placeholder="Your Name" class="w-full p-3 rounded bg-dark text-white outline-none" required>
+        <input type="email" placeholder="Your Email" class="w-full p-3 rounded bg-dark text-white outline-none" required>
+        <textarea placeholder="Your Message" class="w-full p-3 rounded bg-dark text-white outline-none h-32" required></textarea>
+        <button type="submit" class="bg-primary text-black font-semibold px-6 py-3 rounded hover:scale-105 transition">Send</button>
+      </form>
+    </div>
+  </section>
 
-      <div>
-        <label for="message" class="block mb-2 text-lg font-medium">Message</label>
-        <textarea id="message" rows="5" class="w-full p-3 rounded bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-indigo-500" placeholder="Write your message here..."></textarea>
-      </div>
+  <!-- Footer -->
+  <footer class="text-center py-6 bg-dark text-gray-500">
+    © 2025 AS Web Designer. All rights reserved.
+  </footer>
 
-      <button type="submit" class="w-full bg-indigo-600 hover:bg-indigo-700 transition duration-300 text-white font-semibold py-3 px-6 rounded-lg">
-        Send Message
-      </button>
-    </form>
-
-    <div id="form-message" class="mt-4 text-green-400 font-semibold hidden opacity-0">Your message has been sent successfully!</div>
-  </div>
-
+  <!-- Scroll Reveal Script -->
   <script>
-    document.getElementById('contact-form').addEventListener('submit', function (e) {
-      e.preventDefault();
-
-      const name = document.getElementById('name').value.trim();
-      const email = document.getElementById('email').value.trim();
-      const subject = document.getElementById('subject').value.trim();
-      const message = document.getElementById('message').value.trim();
-
-      if (!name || !email || !subject || !message) {
-        alert("Please fill in all fields.");
-        return;
-      }
-
-      const msgBox = document.getElementById('form-message');
-      msgBox.classList.remove('hidden');
-      msgBox.classList.remove('opacity-0');
-      msgBox.classList.add('fade-in');
-
-      setTimeout(() => {
-        msgBox.classList.add('opacity-0');
-        msgBox.classList.remove('fade-in');
-      }, 5000);
-
-      this.reset();
-    });
+    const reveals = document.querySelectorAll('.reveal');
+    const revealOnScroll = () => {
+      reveals.forEach(el => {
+        const top = el.getBoundingClientRect().top;
+        if (top < window.innerHeight - 50) {
+          el.classList.add('visible');
+        }
+      });
+    };
+    window.addEventListener('scroll', revealOnScroll);
+    revealOnScroll(); // Trigger on load
   </script>
 </body>
 </html>
-
